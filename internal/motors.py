@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-from gpio_handler import get_servo_pwn, get_buzzer_pwn
+from gpio_handler import get_servo_pwm, get_buzzer_pwm
 front = [12, 26, 14, 20] 
 back = [16, 19, 13, 21]   
 left = [14, 26]  
