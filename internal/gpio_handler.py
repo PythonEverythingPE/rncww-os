@@ -26,6 +26,7 @@ if __name__ == "__main__":
     FREQUENCIA_AGUDO = 1500
     FREQUENCIA_GRAVE = 1175
     GPIO.setup(PIN_BUZZER, GPIO.OUT)
+    global buzzer_pwn
     buzzer_pwn = GPIO.PWM(PIN_BUZZER, 50)
 else:
     def get_servo_pwn():
