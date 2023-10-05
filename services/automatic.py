@@ -3,9 +3,10 @@ import time
 import threading
 import os
 import sys
-internal_path = os.path.join(os.path.dirname(__file__), "..", "internal")
-sys.path.append(internal_path)
-from ..internal.motors import *
+current_dir = os.path.dirname(os.path.abspath(__file__))
+internal_dir = os.path.join(current_dir, "..", "internal")
+sys.path.append(internal_dir)
+from motors import *
 
 
 
