@@ -67,7 +67,7 @@ FREQUENCIA_GRAVE = 1175
 
 ALARM = False
 
-GPIO.setup(PIN_BUZZER, GPIO.OUT)
+
 
 
 pwm =   get_buzzer_pwn()
