@@ -14,7 +14,7 @@ all_pins = front + back + left + right
 
 def servo(graus):
     global _pwm_
-    _pwm_ = get_servo_pwn()
+    _pwm_ = get_servo_pwm()
     
     ciclo_de_trabalho = (graus / 18) + 2  
     if _pwm_ is None:
@@ -70,7 +70,7 @@ ALARM = False
 
 
 
-pwm =   get_buzzer_pwn()
+pwm =   get_buzzer_pwm()
 pwm.start(0)
 
 
