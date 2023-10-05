@@ -1,7 +1,12 @@
 import requests
 import time
 import threading
-from ..internal.motors import move, stop, get_distance, servo, bip, FREQUENCIA_AGUDO, FREQUENCIA_GRAVE, front, back, left, right
+import os
+import sys
+internal_path = os.path.join(os.path.dirname(__file__), "..", "internal")
+sys.path.append(internal_path)
+from ..internal.motors import *
+
 
 
 time.sleep(3)
