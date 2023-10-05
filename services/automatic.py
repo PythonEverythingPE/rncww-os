@@ -1,7 +1,7 @@
 import requests
 import time
 import threading
-from internal.motors import move, stop, get_distance, servo, bip, FREQUENCIA_AGUDO, FREQUENCIA_GRAVE, front, back, left, right
+from ..internal.motors import move, stop, get_distance, servo, bip, FREQUENCIA_AGUDO, FREQUENCIA_GRAVE, front, back, left, right
 
 
 time.sleep(3)
