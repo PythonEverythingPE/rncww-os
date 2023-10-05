@@ -30,6 +30,6 @@ GPIO.setup(ECHO_PIN, GPIO.IN)
 GPIO.setup(SERVO_PIN, GPIO.OUT)
 
 
-# Configurar o buzzer
+
 GPIO.setup(PIN_BUZZER, GPIO.OUT)
 
