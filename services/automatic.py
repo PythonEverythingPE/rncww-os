@@ -9,6 +9,8 @@ sys.path.append(internal_dir)
 from motors import *
 from gpio_handler import *
 
+FREQUENCIA_AGUDO = 1500
+FREQUENCIA_GRAVE = 1175
 
 
 time.sleep(3)

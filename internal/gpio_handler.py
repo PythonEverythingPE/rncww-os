@@ -67,7 +67,7 @@ def servo(graus):
         _pwm_.start(ciclo_de_trabalho)
     else:
         _pwm_.ChangeDutyCycle(ciclo_de_trabalho)
-    time.sleep(0.5) 
+    
 
 def get_distance():
     try:
