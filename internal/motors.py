@@ -1,6 +1,5 @@
 import RPi.GPIO as GPIO
 import time
-
 front = [12, 26, 14, 20] 
 back = [16, 19, 13, 21]   
 left = [14, 26]  
@@ -18,11 +17,10 @@ FREQUENCIA_GRAVE = 1175
 global _pwm_
 global buzzer_pwn
 _pwm_ = None
+from gpio_handler import _pwm_, buzzer_pwn
 
 all_pins = front + back + left + right
 
-buzzer_pwn = GPIO.PWM(PIN_BUZZER, PWM_FREQUENCY)
-_pwm_ = GPIO.PWM(SERVO_PIN, PWM_FREQUENCY)
 
 
 def move(pinos):
