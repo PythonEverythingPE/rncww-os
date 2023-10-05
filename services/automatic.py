@@ -37,12 +37,12 @@ while True:
                     stop()
                     while True:
                         distance = get_distance()
-                        bip()
+                        bip(FREQUENCIA_AGUDO)
                         time.sleep(0.4)
                         if distance != None:
-                            bip()
+                            bip(FREQUENCIA_AGUDO)
                             time.sleep(0.1)
-                            bip()
+                            bip(FREQUENCIA_AGUDO)
                             ALARM = False
                             break
             distance = int(distance)
