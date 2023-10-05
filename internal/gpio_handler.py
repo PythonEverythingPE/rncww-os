@@ -1,35 +1,41 @@
 import RPi.GPIO as GPIO
 
-
 global _pwm_
-front = [12, 26, 14, 20] 
-back = [16, 19, 13, 21]   
-left = [14, 26]  
+global buzzer_pwn
+
+front = [12, 26, 14, 20]
+back = [16, 19, 13, 21]
+left = [14, 26]
 right = [12, 20]
 TRIG_PIN = 27
 ECHO_PIN = 22
 SERVO_PIN = 18
-_pwm_ = None
+PWM_FREQUENCY = 50
+PIN_BUZZER = 5
+FREQUENCIA_AGUDO = 1500
+FREQUENCIA_GRAVE = 1175
+
+# Inicialize a biblioteca RPi.GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
+
+# Configurar os pinos GPIO
 all_pins = front + back + right + left
 for i in all_pins:
     GPIO.setup(i, GPIO.OUT)
     GPIO.output(i, GPIO.LOW)
 
-
 GPIO.setup(TRIG_PIN, GPIO.OUT)
 GPIO.setup(ECHO_PIN, GPIO.IN)
 GPIO.setup(SERVO_PIN, GPIO.OUT)
-_pwm_ = GPIO.PWM(SERVO_PIN, 50)
-PIN_BUZZER = 5
-FREQUENCIA_AGUDO = 1500
-FREQUENCIA_GRAVE = 1175
-GPIO.setup(PIN_BUZZER, GPIO.OUT)
-global buzzer_pwn
-buzzer_pwn = GPIO.PWM(PIN_BUZZER, 50)
+_pwm_ = GPIO.PWM(SERVO_PIN, PWM_FREQUENCY)
 
-def get_servo_pwn():
+# Configurar o buzzer
+GPIO.setup(PIN_BUZZER, GPIO.OUT)
+buzzer_pwn = GPIO.PWM(PIN_BUZZER, PWM_FREQUENCY)
+
+def get_servo_pwm():
     return _pwm_
-def get_buzzer_pwn():
+
+def get_buzzer_pwm():
     return buzzer_pwn
