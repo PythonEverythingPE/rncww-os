@@ -3,7 +3,7 @@ import time
 import threading
 import os
 import sys
-from robot_internal.gpio_config import *
+from gpio_config import *
 
 
 FREQUENCIA_AGUDO = 1500
