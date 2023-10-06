@@ -1,0 +1,16 @@
+[{
+    "name": "Afonso Inglês",
+    "internal_id": "PE_#INGLES#_Afonso",
+    "password": "Afonso:2011",
+    "perm_level": 100
+}, {
+    "name": "admin",
+    "internal_id": "admin",
+    "password": "admin",
+    "perm_level": 1
+}, {
+    "name": "admin",
+    "internal_id": "admin",
+    "password": "admin",
+    "perm_level": 1
+}]

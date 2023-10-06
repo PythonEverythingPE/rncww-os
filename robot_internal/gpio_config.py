@@ -17,7 +17,7 @@ FREQUENCIA_GRAVE = 1175
 global _pwm_
 global buzzer_pwn
 _pwm_ = None
-from gpio_handler import _pwm_, buzzer_pwn
+from robot_internal.gpio_setup import _pwm_, buzzer_pwn
 
 all_pins = front + back + left + right
 
@@ -44,23 +44,17 @@ def bip(frequencia):
     time.sleep(0.1)  
     pwm.ChangeDutyCycle(0) 
 
-def alarm(frequencia):
+def long_alarm(frequencia):
     pwm =  buzzer_pwn
     pwm.ChangeFrequency(frequencia)
     pwm.ChangeDutyCycle(50) 
-    time.sleep(0.1)  
-    pwm.ChangeDutyCycle(0) 
+    time.sleep(5)  
+    pwm.ChangeDutyCycle(0)
 
 
-def alarm_thread():
-    global ALARM
-    ALARM = True
 
-    while ALARM:
-        alarm(FREQUENCIA_AGUDO)
-        time.sleep(0.1)
-        alarm(FREQUENCIA_GRAVE)
-        time.sleep(0.1)
+
+
 
 def servo(graus):
     

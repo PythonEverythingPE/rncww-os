@@ -3,20 +3,16 @@ import time
 import threading
 import os
 import sys
-from motors import *
+from robot_internal.gpio_config import *
 
 
 FREQUENCIA_AGUDO = 1500
 FREQUENCIA_GRAVE = 1175
 
 
-time.sleep(3)
+time.sleep(2)
 servo(90)
-bip(FREQUENCIA_AGUDO)
-time.sleep(0.1)
-bip(FREQUENCIA_AGUDO)
-
-
+long_alarm(FREQUENCIA_AGUDO)
 
 while True:
             
@@ -25,13 +21,11 @@ while True:
             
             
             distance = get_distance()
-            print(distance)
-            print(f"Distância: {distance} cm")
             if distance == None:
                     stop()
                     
                     bip(FREQUENCIA_AGUDO)
-                    stop()
+                    
                     while True:
                         distance = get_distance()
                         bip(FREQUENCIA_AGUDO)

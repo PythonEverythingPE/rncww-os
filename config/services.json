@@ -1,0 +1,34 @@
+[{
+    "id": "GPIO_HANDLER",
+    "status": "STOPPED",
+    "start_at_boot": true,
+    "automatic_restart": true
+}, {
+    "id": "WEBPAGE_SERVER",
+    "status": "STOPPED",
+    "start_at_boot": true,
+    "automatic_restart": true
+}, {
+    "id": "AUTOMATIC_ROBOT",
+    "status": "STOPPED",
+    "start_at_boot": false,
+    "automatic_restart": false
+},
+
+{
+    "id": "API_SERVER",
+    "status": "STOPPED",
+    "start_at_boot": true,
+    "automatic_restart": false
+},
+{
+    "id": "CAMERA_SERVER",
+    "status": "STOPPED",
+    "start_at_boot": true,
+    "automatic_restart": false
+},
+
+{
+    "SETUP_STATUS": "WAIT"
+
+}]
