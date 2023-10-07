@@ -16,12 +16,11 @@ servo(90)
 
 
 while True:
-            with open("config/services.json", "r") as f:
+            with open("../config/services.json", "r") as f:
                 data = json.load(f)
                 for service in data:
-                    if service["id"] == "AUTOMATIC_ROBOT" and service["start_at_boot"] == False:
-                        long_alarm(FREQUENCIA_AGUDO)
-                        break
+                    if "id" in service and service["id"] == "AUTOMATIC_ROBOT" and service["start_at_boot"] == False:
+                        exit
                 
 
             

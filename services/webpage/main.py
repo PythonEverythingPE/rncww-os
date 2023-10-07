@@ -11,7 +11,7 @@ def index():
 def before_request():
     if request.path.startswith("/static") or request.method == "POST" or request.path.startswith("/api"):
         return None
-    with open("config/services.json", "r") as f:
+    with open("config\services.json", "r") as f:
         data = json.load(f)
         for i in data:
             if "SERVICE_STATUS" in i and i["SERVICE_STATUS"] == "OFF":
