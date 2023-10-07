@@ -4,6 +4,7 @@ import threading
 import os
 import sys
 from gpio_config import *
+import json
 
 
 FREQUENCIA_AGUDO = 1500
@@ -12,12 +13,23 @@ FREQUENCIA_GRAVE = 1175
 
 time.sleep(2)
 servo(90)
-long_alarm(FREQUENCIA_AGUDO)
+
 
 while True:
+            with open("config/services.json", "r") as f:
+                data = json.load(f)
+                for service in data:
+                    if service["id"] == "AUTOMATIC_ROBOT" and service["start_at_boot"] == False:
+                        long_alarm(FREQUENCIA_AGUDO)
+                        break
+                
+
             
             move(front)
-            
+            _ = 0
+            if _ == 0:
+                long_alarm(FREQUENCIA_AGUDO)
+                _ = 1
             
             
             distance = get_distance()
@@ -65,11 +77,13 @@ while True:
                     servo(90)
                     move(left)
                     time.sleep(1.25)
+                    stop()
                     
                 else:
                     servo(90)
                     move(right)
                     time.sleep(1.25)
+                    stop()
                     
                  
     

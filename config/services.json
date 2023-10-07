@@ -4,7 +4,7 @@
     "start_at_boot": true,
     "automatic_restart": true
 }, {
-    "id": "WEBPAGE_SERVER",
+    "id": "IOS_APP",
     "status": "STOPPED",
     "start_at_boot": true,
     "automatic_restart": true
@@ -29,6 +29,5 @@
 },
 
 {
-    "SETUP_STATUS": "WAIT"
-
+    "SERVICE_STATUS": "OK"
 }]
