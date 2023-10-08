@@ -59,6 +59,7 @@ if is_connected():
                         print("Starting " + service["SERVICE_ID"])
                         os.system("sudo python3.10 " + service["PATH"])
                         print("Started " + service["SERVICE_ID"])
+                        print()
                     else:
                         print(service["SERVICE_ID"] + " is not set to start on boot! Continuing...")
                         print()
