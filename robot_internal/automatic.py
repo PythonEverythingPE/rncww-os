@@ -12,7 +12,7 @@ servo(90)
 
 
 while True:
-            with open("../config/services.json", "r") as f:
+            with open("config/services.json", "r") as f:
                 data = json.load(f)
                 for service in data:
                     if "SERVICE_ID" in service and service["id"] == "AUTOMATIC_ROBOT" and service["BOOT_START"] == False:
