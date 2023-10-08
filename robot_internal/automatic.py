@@ -9,7 +9,7 @@ FREQUENCIA_GRAVE = 1175
 
 time.sleep(2)
 servo(90)
-
+_ = 0
 
 while True:
             with open("config/services.json", "r") as f:
@@ -18,7 +18,7 @@ while True:
                     if "SERVICE_ID" in service and service["SERVICE_ID"] == "AUTOMATIC_ROBOT" and service["BOOT_START"] == False:
                         exit
                 
-            _ = 0
+            
             if _ == 0:
                 long_alarm(FREQUENCIA_AGUDO)
                 _ = 1
