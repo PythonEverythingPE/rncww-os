@@ -21,24 +21,24 @@ def is_connected():
 
 if is_connected():
     print("Connected to the internet!")
-    print("Checking for updates...")
+    print("Conecting to update server...")
     response = requests.get("https://raw.githubusercontent.com/RNCWW/RNCWW-OS/main/config/os-version.json")
     if response.status_code == 200:
-        
+        print("Connected to update server!")
         if os_version["RNCWW-OS_VERSION"] != version:
             os.system("cd ..")
             bip(FREQUENCIA_AGUDO)
-            time.sleep(0.1)
+            time.sleep(0.3)
             bip(FREQUENCIA_GRAVE)
-            time.sleep(0.1)
+            time.sleep(0.3)
             bip(FREQUENCIA_AGUDO)
-            time.sleep(0.1)
+            time.sleep(0.3)
             bip(FREQUENCIA_GRAVE)
-            time.sleep(0.1)
+            time.sleep(0.3)
             bip(FREQUENCIA_AGUDO)
-            time.sleep(0.1)
+            time.sleep(0.3)
             bip(FREQUENCIA_GRAVE)
-            time.sleep(0.1)
+            time.sleep(0.3)
             print("Update found!")
             print("Downloading update...")
             os.system("cd ..")
@@ -52,9 +52,9 @@ if is_connected():
             print("Restarting with update...")
             os.system("sudo reboot")
         else:
-            print("No updates found!")
+            print("Update not found")
             print("Starting RNCWW OS...")
-            with open("config/services.json") as services:
+            with open("config/services.json", "r") as services:
                 services = json.load(services)
                 for service in services:
                     print("Service Detected: " + service["SERVICE_ID"])
