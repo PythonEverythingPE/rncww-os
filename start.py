@@ -3,7 +3,7 @@ import requests
 import os
 from robot_internal.gpio_setup import *
 from robot_internal.gpio_config import *
-print("Checking for updates...")
+print("RNCWW | Checking for updates...")
 with open("config/os_version.json", "r") as os_version_file:
     os_version = json.load(os_version_file)
     installed_version = os_version["RNCWW-OS_VERSION"]
