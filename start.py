@@ -3,6 +3,7 @@ import requests
 import os
 import threading
 from robot_internal.bip import *
+import subprocess
 print("RNCWW | Checking for updates...")
 with open("config/os_version.json", "r") as os_version_file:
     os_version = json.load(os_version_file)
@@ -50,7 +51,7 @@ if is_connected():
             exit
         else:
             def start_service(service):
-                os.system("sudo python3.10 " + service["PATH"])
+                subprocess.Popen(["sudo", "python3.10", service["PATH"]], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             print("No updates available")
             print("Starting RNCWW OS...")
             with open("config/services.json", "r") as services:
