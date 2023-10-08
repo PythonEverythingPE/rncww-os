@@ -2,19 +2,19 @@
     "SERVICE_ID": "GPIO_SETUP",
     "SERVICE_STATUS": "STOPPED",
     "BOOT_START": true,
-    "PATH": "/robot_internal/gpio_setup.py",
+    "PATH": "robot_internal/gpio_setup.py",
     "TYPE": "INTERNAL"
 }, {
     "SERVICE_ID": "GPIO_CONFIG",
     "SERVICE_STATUS": "STOPPED",
     "BOOT_START": true,
-    "PATH": "/robot_internal/gpio_config.py",
+    "PATH": "robot_internal/gpio_config.py",
     "TYPE": "INTERNAL"
 }, {
     "SERVICE_ID": "AUTOMATIC_MODE",
     "SERVICE_STATUS": "STOPPED",
     "BOOT_START": true,
-    "PATH": "/robot_internal/automatic.py",
+    "PATH": "robot_internal/automatic.py",
     "TYPE": "SERVICE"
 },
 
@@ -22,14 +22,14 @@
     "SERVICE_ID": "WEBPAGE_SERVER",
     "SERVICE_STATUS": "STOPPED",
     "BOOT_START": false,
-    "PATH": "/services/webpage/main.py",
+    "PATH": "services/webpage/main.py",
     "TYPE": "WEB"
 },
 {
     "SERVICE_ID": "IR_RECEIVER",
     "SERVICE_STATUS": "STOPPED",
     "BOOT_START": false,
-    "PATH": "/services/ir_receiver/main.py",
+    "PATH": "services/ir_receiver/main.py",
     "TYPE": "SERVICE"
 }
 
