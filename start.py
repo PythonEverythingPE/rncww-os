@@ -59,12 +59,14 @@ if is_connected():
                     print("Service Detected: " + service["SERVICE_ID"])
                     if service["SERVICE_ID"] == "SERVICE_END":
                         exit
-                    if service["BOOT_START"] == True:
-                        print("Starting " + service["SERVICE_ID"])
-                        thread = threading.Thread(target=start_service, args=(service,))
-                        thread.start()
-                        print("Started " + service["SERVICE_ID"])
-                        print()
+                        exit()
+                    if service["BOOT_START"]:
+                        if service["BOOT_START"] == True:
+                            print("Starting " + service["SERVICE_ID"])
+                            thread = threading.Thread(target=start_service, args=(service,))
+                            thread.start()
+                            print("Started " + service["SERVICE_ID"])
+                            print()
                     else:
                         print(service["SERVICE_ID"] + " is not set to start on boot! Continuing...")
                         print()
