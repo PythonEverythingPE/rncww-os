@@ -3,6 +3,7 @@ from automatic_conf import *
 import json
 
 
+
 FREQUENCIA_AGUDO = 1500
 FREQUENCIA_GRAVE = 1175
 
@@ -35,6 +36,7 @@ while True:
                         bip(FREQUENCIA_AGUDO)
                         time.sleep(0.4)
                         if distance != None:
+                            print("ALERT | Distance is: " + distance + "cm")
                             bip(FREQUENCIA_AGUDO)
                             time.sleep(0.1)
                             bip(FREQUENCIA_AGUDO)
