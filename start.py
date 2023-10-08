@@ -21,7 +21,7 @@ def is_connected():
 
 if is_connected():
     print("Connected to the internet!")
-    print("Conecting to update server...")
+    print("Connecting to update server...")
     response = requests.get("https://raw.githubusercontent.com/RNCWW/RNCWW-OS/main/config/os-version.json")
     if response.status_code == 200:
         print("Connected to update server!")
@@ -51,10 +51,8 @@ if is_connected():
             print("Requirements installed!")
             print("Restarting with update...")
             os.system("sudo reboot")
-
-            
-        if os_version["RNCWW-OS_VERSION"] == version:   
-            print("Update not found")
+        else:
+            print("No updates available")
             print("Starting RNCWW OS...")
             with open("config/services.json", "r") as services:
                 services = json.load(services)
@@ -65,7 +63,9 @@ if is_connected():
                         os.system("sudo python3.10 -m " + service["PATH"])
                         print("Started " + service["SERVICE_ID"])
                     else:
-                        print( service["SERVICE_ID"] + " is not set to start on boot! Continuing...")
-                        print
-                
-            
+                        print(service["SERVICE_ID"] + " is not set to start on boot! Continuing...")
+                        print()
+    else:
+        print("Unable to connect to update server!")
+else:
+    print("Unable to connect to the internet!")
