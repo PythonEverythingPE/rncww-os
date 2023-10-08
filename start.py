@@ -22,7 +22,7 @@ def is_connected():
 if is_connected():
     print("Connected to the internet!")
     print("Connecting to update server...")
-    response = requests.get("https://raw.githubusercontent.com/RNCWW/RNCWW-OS/main/config/os-version.json")
+    response = requests.get("https://raw.githubusercontent.com/PythonEverythingPE/rncww-os/main/config/os_version.json")
     if response.status_code == 200:
         print("Connected to update server!")
         if os_version["RNCWW-OS_VERSION"] != version:
