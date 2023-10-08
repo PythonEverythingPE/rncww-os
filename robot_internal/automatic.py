@@ -15,7 +15,7 @@ while True:
             with open("config/services.json", "r") as f:
                 data = json.load(f)
                 for service in data:
-                    if "SERVICE_ID" in service and service["id"] == "AUTOMATIC_ROBOT" and service["BOOT_START"] == False:
+                    if "SERVICE_ID" in service and service["SERVICE_ID"] == "AUTOMATIC_ROBOT" and service["BOOT_START"] == False:
                         exit
                 
             _ = 0
