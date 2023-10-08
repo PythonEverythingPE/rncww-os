@@ -1,8 +1,4 @@
-import requests
 import time
-import threading
-import os
-import sys
 from gpio_config import *
 import json
 
@@ -19,16 +15,16 @@ while True:
             with open("../config/services.json", "r") as f:
                 data = json.load(f)
                 for service in data:
-                    if "id" in service and service["id"] == "AUTOMATIC_ROBOT" and service["start_at_boot"] == False:
+                    if "SERVICE_ID" in service and service["id"] == "AUTOMATIC_ROBOT" and service["boot_start"] == False:
                         exit
                 
-
-            
-            move(front)
             _ = 0
             if _ == 0:
                 long_alarm(FREQUENCIA_AGUDO)
                 _ = 1
+            
+            move(front)
+            
             
             
             distance = get_distance()
@@ -45,7 +41,7 @@ while True:
                             bip(FREQUENCIA_AGUDO)
                             time.sleep(0.1)
                             bip(FREQUENCIA_AGUDO)
-                            ALARM = False
+                            
                             break
             distance = int(distance)
             

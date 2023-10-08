@@ -14,9 +14,9 @@ def before_request():
     with open("config\services.json", "r") as f:
         data = json.load(f)
         for i in data:
-            if "SERVICE_STATUS" in i and i["SERVICE_STATUS"] == "OFF":
+            if "SERVICE_STATUS" in i and i["GLOBAL_SERVICE_STATUS"] == "OFF":
                 return render_template("/system/starting.html")
-            if "SERVICE_STATUS" in i and i["SERVICE_STATUS"] == "UPDATING":
+            if "SERVICE_STATUS" in i and i["GLOBAL_SERVICE_STATUS"] == "UPDATING":
                 return render_template("/system/updating.html")
             
     return None

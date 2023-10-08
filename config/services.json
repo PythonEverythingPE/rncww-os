@@ -1,33 +1,36 @@
 [{
-    "id": "GPIO_HANDLER",
-    "status": "STOPPED",
-    "start_at_boot": true,
-    "automatic_restart": true
+    "SERVICE_ID": "GPIO_SETUP",
+    "SERVICE_STATUS": "STOPPED",
+    "BOOT_START": true,
+    "PATH": "/robot_internal/gpio_setup.py",
+    "TYPE": "INTERNAL"
 }, {
-    "id": "IOS_APP",
-    "status": "STOPPED",
-    "start_at_boot": true,
-    "automatic_restart": true
+    "SERVICE_ID": "GPIO_CONFIG",
+    "SERVICE_STATUS": "STOPPED",
+    "BOOT_START": true,
+    "PATH": "/robot_internal/gpio_config.py",
+    "TYPE": "INTERNAL"
 }, {
-    "id": "AUTOMATIC_ROBOT",
-    "status": "STOPPED",
-    "start_at_boot": false,
-    "automatic_restart": false
+    "SERVICE_ID": "AUTOMATIC_MODE",
+    "SERVICE_STATUS": "STOPPED",
+    "BOOT_START": true,
+    "PATH": "/robot_internal/automatic.py",
+    "TYPE": "SERVICE"
 },
 
 {
-    "id": "API_SERVER",
-    "status": "STOPPED",
-    "start_at_boot": true,
-    "automatic_restart": false
+    "SERVICE_ID": "WEBPAGE_SERVER",
+    "SERVICE_STATUS": "STOPPED",
+    "BOOT_START": false,
+    "PATH": "/services/webpage/main.py",
+    "TYPE": "WEB"
 },
 {
-    "id": "CAMERA_SERVER",
-    "status": "STOPPED",
-    "start_at_boot": true,
-    "automatic_restart": false
-},
+    "SERVICE_ID": "IR_RECEIVER",
+    "SERVICE_STATUS": "STOPPED",
+    "BOOT_START": false,
+    "PATH": "/services/ir_receiver/main.py",
+    "TYPE": "SERVICE"
+}
 
-{
-    "SERVICE_STATUS": "OK"
-}]
+]

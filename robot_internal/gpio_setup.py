@@ -15,11 +15,11 @@ PIN_BUZZER = 5
 FREQUENCIA_AGUDO = 1500
 FREQUENCIA_GRAVE = 1175
 
-# Inicialize a biblioteca RPi.GPIO
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-# Configurar os pinos GPIO
+
 all_pins = front + back + right + left
 for i in all_pins:
     GPIO.setup(i, GPIO.OUT)
