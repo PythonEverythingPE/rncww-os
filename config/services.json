@@ -1,21 +1,10 @@
-[{
-    "SERVICE_ID": "GPIO_SETUP",
-    "SERVICE_STATUS": "STOPPED",
-    "BOOT_START": true,
-    "PATH": "robot_internal/gpio_setup.py",
-    "TYPE": "INTERNAL"
-}, {
-    "SERVICE_ID": "GPIO_CONFIG",
-    "SERVICE_STATUS": "STOPPED",
-    "BOOT_START": true,
-    "PATH": "robot_internal/gpio_config.py",
-    "TYPE": "INTERNAL"
-}, {
+[ {
     "SERVICE_ID": "AUTOMATIC_MODE",
     "SERVICE_STATUS": "STOPPED",
     "BOOT_START": true,
     "PATH": "robot_internal/automatic.py",
     "TYPE": "SERVICE"
+    
 },
 
 {

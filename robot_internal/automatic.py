@@ -1,5 +1,5 @@
 import time
-from gpio_config import *
+from robot_internal.gpio_config import *
 import json
 
 
