@@ -51,7 +51,9 @@ if is_connected():
             print("Requirements installed!")
             print("Restarting with update...")
             os.system("sudo reboot")
-        else:
+
+            
+        if os_version["RNCWW-OS_VERSION"] == version:   
             print("Update not found")
             print("Starting RNCWW OS...")
             with open("config/services.json", "r") as services:
