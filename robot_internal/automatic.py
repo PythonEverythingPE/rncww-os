@@ -77,9 +77,6 @@ while True:
                     stop()
                     
                  
-    
-
-
 
 
 def service_check():

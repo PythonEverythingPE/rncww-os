@@ -1,6 +1,7 @@
 import json
 import requests
 import os
+import threading
 from robot_internal.gpio_setup import *
 from robot_internal.automatic_conf import *
 print("RNCWW | Checking for updates...")
@@ -49,6 +50,8 @@ if is_connected():
             os.system("sudo python3.10 ../updater.py")
             exit
         else:
+            def start_service(service):
+                os.system("sudo python3.10 " + service["PATH"])
             print("No updates available")
             print("Starting RNCWW OS...")
             with open("config/services.json", "r") as services:
@@ -57,7 +60,8 @@ if is_connected():
                     print("Service Detected: " + service["SERVICE_ID"])
                     if service["BOOT_START"] == True:
                         print("Starting " + service["SERVICE_ID"])
-                        os.system("sudo python3.10 " + service["PATH"])
+                        thread = threading.Thread(target=start_service, args=(service,))
+                        thread.start()
                         print("Started " + service["SERVICE_ID"])
                         print()
                     else:
@@ -67,3 +71,5 @@ if is_connected():
         print("Unable to connect to update server!")
 else:
     print("Unable to connect to the internet!")
+
+
