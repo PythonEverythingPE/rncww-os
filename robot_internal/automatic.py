@@ -25,6 +25,7 @@ while True:
             
             distance = get_distance()
             if distance == None:
+                    bip(FREQUENCIA_AGUDO)
                     stop()
                     
                     bip(FREQUENCIA_AGUDO)
