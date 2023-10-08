@@ -17,7 +17,7 @@ FREQUENCIA_GRAVE = 1175
 global _pwm_
 global buzzer_pwn
 _pwm_ = None
-from gpio_setup import _pwm_, buzzer_pwn
+from robot_internal.gpio_setup import _pwm_, buzzer_pwn
 
 all_pins = front + back + left + right
 
