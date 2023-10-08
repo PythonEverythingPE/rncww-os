@@ -26,6 +26,7 @@ if is_connected():
     if response.status_code == 200:
         print("Connected to update server!")
         version = json.loads(response.text)
+        version = version["RNCWW-OS_VERSION"]
         if os_version["RNCWW-OS_VERSION"] != version:
             os.system("cd ..")
             bip(FREQUENCIA_AGUDO)
