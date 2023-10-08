@@ -6,6 +6,8 @@ from robot_internal.gpio_config import *
 print("Checking for updates...")
 with open("config/os_version.json", "r") as os_version_file:
     os_version = json.load(os_version_file)
+    installed_version = os_version["RNCWW-OS_VERSION"]
+    print("Installed OS version. " + installed_version)
     
 
 def is_connected():
@@ -26,8 +28,9 @@ if is_connected():
     if response.status_code == 200:
         print("Connected to update server!")
         version = json.loads(response.text)
-        version = version["RNCWW-OS_VERSION"]
-        if os_version["RNCWW-OS_VERSION"] != version:
+        github_version = version["RNCWW-OS_VERSION"]
+        print("Latest OS version: " + github_version)
+        if installed_version != github_version:
             os.system("cd ..")
             bip(FREQUENCIA_AGUDO)
             time.sleep(0.3)
