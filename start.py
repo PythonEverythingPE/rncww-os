@@ -25,8 +25,7 @@ if is_connected():
     response = requests.get("https://raw.githubusercontent.com/PythonEverythingPE/rncww-os/main/config/os_version.json")
     if response.status_code == 200:
         print("Connected to update server!")
-        version = response.text
-        version = json.load(version)
+        version = json.loads(response.text)
         if os_version["RNCWW-OS_VERSION"] != version:
             os.system("cd ..")
             bip(FREQUENCIA_AGUDO)
