@@ -20,6 +20,10 @@
     "BOOT_START": false,
     "PATH": "services/ir_receiver/main.py",
     "TYPE": "SERVICE"
+},
+{
+    "SERVICE_ID": "SERVICE_END",
+    "TYPE": "INTERNAL"
 }
 
 ]

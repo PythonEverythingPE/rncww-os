@@ -2,7 +2,7 @@ import json
 import requests
 import os
 import threading
-from robot_internal.gpio_config import *
+from robot_internal.bip import *
 print("RNCWW | Checking for updates...")
 with open("config/os_version.json", "r") as os_version_file:
     os_version = json.load(os_version_file)
@@ -57,6 +57,8 @@ if is_connected():
                 services = json.load(services)
                 for service in services:
                     print("Service Detected: " + service["SERVICE_ID"])
+                    if service["SERVICE_ID"] == "SERVICE_END":
+                        exit
                     if service["BOOT_START"] == True:
                         print("Starting " + service["SERVICE_ID"])
                         thread = threading.Thread(target=start_service, args=(service,))
@@ -72,3 +74,4 @@ else:
     print("Unable to connect to the internet!")
 
 
+exit()
