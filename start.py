@@ -47,6 +47,7 @@ if is_connected():
             print("Update found!")
             print("Downloading update...")
             os.system("sudo python3.10 ../updater.py")
+            exit
         else:
             print("No updates available")
             print("Starting RNCWW OS...")
