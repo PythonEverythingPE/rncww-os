@@ -12,11 +12,7 @@ servo(90)
 _ = 0
 
 while True:
-            with open("config/services.json", "r") as f:
-                data = json.load(f)
-                for service in data:
-                    if "SERVICE_ID" in service and service["SERVICE_ID"] == "AUTOMATIC_ROBOT" and service["BOOT_START"] == False:
-                        exit
+            
                 
             
             if _ == 0:
@@ -52,7 +48,7 @@ while True:
             
             if distance <= 40:
                 bip(FREQUENCIA_AGUDO)
-                print(stop())
+                stop()
                 time.sleep(0.2)
                 move(back)
                 time.sleep(1)
@@ -85,3 +81,10 @@ while True:
 
 
 
+
+def service_check():
+      with open("config/services.json", "r") as f:
+                data = json.load(f)
+                for service in data:
+                    if "SERVICE_ID" in service and service["SERVICE_ID"] == "AUTOMATIC_ROBOT" and service["BOOT_START"] == False:
+                        exit

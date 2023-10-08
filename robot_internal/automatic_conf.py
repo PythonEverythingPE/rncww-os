@@ -48,7 +48,7 @@ def long_alarm(frequencia):
     pwm =  buzzer_pwn
     pwm.ChangeFrequency(frequencia)
     pwm.ChangeDutyCycle(50) 
-    time.sleep(5)  
+    time.sleep(3)  
     pwm.ChangeDutyCycle(0)
 
 
