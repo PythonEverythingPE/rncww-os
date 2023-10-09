@@ -3,7 +3,7 @@ import requests
 import os
 import threading
 import time
-from robot_internal.bip import bip
+
 import subprocess
 print("RNCWW | Checking for updates...")
 with open("config/os_version.json", "r") as os_version_file:
@@ -33,21 +33,9 @@ if is_connected():
         github_version = version["RNCWW-OS_VERSION"]
         print("Latest OS version: " + github_version)
         if installed_version != github_version:
-            FREQUENCIA_AGUDO = 1500
-            FREQUENCIA_GRAVE = 1175
+            
             os.system("cd ..")
-            bip(FREQUENCIA_AGUDO)
-            time.sleep(0.3)
-            bip(FREQUENCIA_GRAVE)
-            time.sleep(0.3)
-            bip(FREQUENCIA_AGUDO)
-            time.sleep(0.3)
-            bip(FREQUENCIA_GRAVE)
-            time.sleep(0.3)
-            bip(FREQUENCIA_AGUDO)
-            time.sleep(0.3)
-            bip(FREQUENCIA_GRAVE)
-            time.sleep(0.3)
+            
             print("Update found!")
             print("Downloading update...")
             os.system("sudo python3.10 ../updater.py")
