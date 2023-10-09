@@ -51,7 +51,7 @@ if is_connected():
             exit
         else:
             def start_service(service):
-                subprocess = subprocess.Popen(["sudo", "python3.10", service["PATH"]], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                subprocess.Popen(["sudo", "python3.10", service["PATH"]], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 
             print("No updates available")
             print("Starting RNCWW OS...")
