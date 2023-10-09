@@ -75,6 +75,8 @@ if is_connected():
     else:
         print("Unable to connect to update server!")
 else:
+    def start_service(service):
+        subprocess = subprocess.Popen(["sudo", "python3.10", service["PATH"]], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     print("Unable to connect to the internet!")
     print("Starting RNCWW OS...")
     with open("config/services.json", "r") as services:
