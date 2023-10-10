@@ -1,10 +1,13 @@
-import json
-import requests
-import os
-import threading
-import time
-
-import subprocess
+try:
+    import json
+    import requests
+    import os
+    import threading
+    import time
+    import subprocess
+except:
+    print("RNCWW | Unable to start. Please try reinstalling the OS.")
+    exit
 print("RNCWW | Checking for updates...")
 with open("config/os_version.json", "r") as os_version_file:
     os_version = json.load(os_version_file)
@@ -86,10 +89,10 @@ else:
                             print("Starting " + service["SERVICE_ID"])
                             thread = threading.Thread(target=start_service, args=(service,))
                             thread.start()
-                            print("Started " + service["SERVICE_ID"])
+                            print("RNCWW OS | Started " + service["SERVICE_ID"])
                             print()
                     else:
-                        print(service["SERVICE_ID"] + " is not set to start on boot! Continuing...")
+                        print(service["SERVICE_ID"] + " is not set to start on boot.  Continuing...")
                         print()
 
 
