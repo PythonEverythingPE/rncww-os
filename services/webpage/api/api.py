@@ -48,7 +48,7 @@ def services_rt():
     
 
 @api.route('/services/stop', methods=['POST'])
-def services_rt():
+def service_rt():
     data = request.get_json()
     id = data["SERVICE_ID"]
 
