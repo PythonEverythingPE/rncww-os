@@ -3,27 +3,34 @@
     "SERVICE_STATUS": "STOPPED",
     "BOOT_START": true,
     "PATH": "robot_internal/automatic.py",
-    "TYPE": "SERVICE"
+    "TYPE": "SERVICE",
+    "ENABLED": true
     
 },
 
 {
     "SERVICE_ID": "WEBPAGE_SERVER",
     "SERVICE_STATUS": "STOPPED",
-    "BOOT_START": false,
+    "BOOT_START": true,
     "PATH": "services/webpage/main.py",
-    "TYPE": "WEB"
+    "TYPE": "INTERNAL",
+    "ENABLED": true
 },
 {
     "SERVICE_ID": "IR_RECEIVER",
     "SERVICE_STATUS": "STOPPED",
     "BOOT_START": false,
     "PATH": "services/ir_receiver/main.py",
-    "TYPE": "SERVICE"
+    "TYPE": "SERVICE",
+    "ENABLED": false
 },
-{
-    "SERVICE_ID": "SERVICE_END",
-    "TYPE": "INTERNAL"
-}
 
+{
+    "SERVICE_ID": "MANUAL_MODE",
+    "SERVICE_STATUS": "STOPPED",
+    "BOOT_START": false,
+    "PATH": "INTERNAL/EXIT",
+    "TYPE": "INTERNAL",
+    "ENABLED": false
+}
 ]

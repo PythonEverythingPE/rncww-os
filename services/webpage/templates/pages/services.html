@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RNCWW | Services</title>
+        <style>
+            @font-face {
+                font-family: 'Rowdies-Bold';
+                src: url('static/fonts/Rowdies-Bold.ttf') format('truetype');
+            }
+
+            @font-face {
+                font-family: 'Rowdies-Regular';
+                src: url('static/fonts/Rowdies-Regular.ttf') format('truetype');
+            }
+
+            body {
+                background-color: #12161B;
+                margin: 0;
+            }
+
+            .container {
+                margin: 10px;
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+            }
+
+            .logo {
+                margin-right: 10px;
+                max-width: 100px;
+                max-height: 100px;
+            }
+
+            .greeting {
+                font-family: 'Rowdies-Bold', sans-serif;
+                font-size: 32px;
+                color: white;
+                margin-right: 15px;
+            }
+
+            .services-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                margin: 20px;
+            }
+
+            .service-card {
+                background-color: #f2f2f2;
+                border-radius: 10px;
+                margin: 10px;
+                padding: 20px;
+                width: 300px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service-name {
+                font-family: 'Rowdies-Bold', sans-serif;
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .service-status {
+                font-family: 'Rowdies-Regular', sans-serif;
+                font-size: 18px;
+                margin-top: 10px;
+                color: green;
+                display: none;
+            }
+
+            .service-buttons {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+            }
+
+            .service-button {
+                background-color: #007bff;
+                border: none;
+                color: white;
+                padding: 10px 20px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 10px;
+                cursor: pointer;
+                border-radius: 20px;
+                font-family: 'Rowdies-Bold', sans-serif;
+            }
+
+            .service-button:hover {
+                background-color: #0069d9;
+            }
+
+            .top-right {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                background-color: white;
+                border-radius: 10px;
+                padding: 10px;
+                margin-right: 10px;
+            }
+
+            .top-right img {
+                width: 40px;
+                height: 40px;
+                margin-left: 20px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <img src="static/images/PE_LOGO-1024.png" alt="Python Everything Logo" class="logo">
+            <div class="greeting">
+                <p>Hello, {{USER_DATA.NAME}}</p>
+            </div>
+        </div>
+
+        <div class="services-container">
+            {% for service in SERVICES_LIST %}
+            <div class="service-card">
+                <div class="service-name">{{ service.SERVICE_ID }}</div>
+                <div class="service-status"></div>
+                <div class="service-buttons">
+                    <button class="service-button start-button" data-service="{{ service.SERVICE_ID }}">Start</button>
+                    <button class="service-button stop-button" data-service="{{ service.SERVICE_ID }}">Stop</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="top-right">
+            <a href="#" onclick="history.back()">
+                <img src="static/images/back.png" alt="Back Button">
+            </a>
+            <a href="/logout">
+                <img src="static/images/logout.png" alt="Logout Button">
+            </a>
+        </div>
+
+        <script>
+            const startButtons = document.querySelectorAll('.start-button');
+            const stopButtons = document.querySelectorAll('.stop-button');
+
+            startButtons.forEach(button => {
+                button.addEventListener('click', async () => {
+                    const serviceId = button.dataset.service;
+                    const response = await fetch(`/api/services/start`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ SERVICE_ID: serviceId })
+                    });
+                    const data = await response.json();
+                    const statusElement = button.parentElement.parentElement.querySelector('.service-status');
+                    if (data.status === 'ok') {
+                        statusElement.style.display = 'block';
+                        statusElement.style.color = 'green';
+                        statusElement.textContent = data.message;
+                        setTimeout(() => {
+                            statusElement.style.display = 'none';
+                            statusElement.textContent = '';
+                        }, 5000);
+                    } else {
+                        statusElement.style.display = 'block';
+                        statusElement.style.color = 'red';
+                        statusElement.textContent = data.message;
+                    }
+                });
+            });
+
+            stopButtons.forEach(button => {
+                button.addEventListener('click', async () => {
+                    const serviceId = button.dataset.service;
+                    const response = await fetch(`/api/services/stop`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ SERVICE_ID: serviceId })
+                    });
+                    const data = await response.json();
+                    const statusElement = button.parentElement.parentElement.querySelector('.service-status');
+                    if (data.status === 'ok') {
+                        statusElement.style.display = 'block';
+                        statusElement.style.color = 'green';
+                        statusElement.textContent = data.message;
+                        setTimeout(() => {
+                            statusElement.style.display = 'none';
+                            statusElement.textContent = '';
+                        }, 5000);
+                    } else {
+                        statusElement.style.display = 'block';
+                        statusElement.style.color = 'red';
+                        statusElement.textContent = data.message;
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

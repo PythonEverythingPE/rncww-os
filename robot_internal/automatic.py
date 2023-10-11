@@ -13,7 +13,15 @@ servo(90)
 _ = 0
 
 while True:
-            
+            with open("config/services.json", "r") as f:
+                data = json.load(f)
+                for service in data:
+                    if "SERVICE_ID" in service and service["SERVICE_ID"] == "AUTOMATIC_ROBOT" and service["SERVICE_STATUS"] == "STOP":
+                        service["SERVICE_STATUS"] = "STOPPED"
+                        stop()
+                        servo(90)
+                        long_alarm(FREQUENCIA_AGUDO)
+                        exit
                 
             
             if _ == 0:

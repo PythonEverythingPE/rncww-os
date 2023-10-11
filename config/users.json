@@ -1,16 +1,15 @@
 [{
-    "name": "Afonso Inglês",
-    "internal_id": "PE_#INGLES#_Afonso",
-    "password": "Afonso:2011",
-    "perm_level": 100
-}, {
-    "name": "admin",
-    "internal_id": "admin",
-    "password": "admin",
-    "perm_level": 1
-}, {
-    "name": "admin",
-    "internal_id": "admin",
-    "password": "admin",
-    "perm_level": 1
+    "NAME": "Afonso Ingles",
+    "USERNAME": "afonso.ingles",
+    "INTERNAL_ID": "com.pythoneverything.user.afonso_ingles",
+    "PASSWORD": "Afonso:2011"
+    
+},
+
+{
+    "NAME": "User Testing",
+    "USERNAME": "com.pythoneverything.user.testing",
+    "INTERNAL_ID": "com.pythoneverything.user.testing",
+    "PASSWORD": "service.testing"
+    
 }]
