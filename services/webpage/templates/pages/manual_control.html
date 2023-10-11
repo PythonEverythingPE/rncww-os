@@ -179,10 +179,10 @@
             </div>
         </div>
         <div class="btns">
-            <div class="manual-control-button manual-control-button-up" onclick="sendPins('{{ front | tojson }}')"></div>
-            <div class="manual-control-button manual-control-button-left" onclick="sendPins('{{ left | tojson }}')"></div>
-            <div class="manual-control-button manual-control-button-right" onclick="sendPins('{{ right | tojson }}')"></div>
-            <div class="manual-control-button manual-control-button-down" onclick="sendPins('{{ back | tojson }}')"></div>
+            <div class="manual-control-button manual-control-button-up" onclick="sendPins([12, 26, 14, 20])"></div>
+            <div class="manual-control-button manual-control-button-left" onclick="sendPins([14, 26])"></div>
+            <div class="manual-control-button manual-control-button-right" onclick="sendPins([12, 20])"></div>
+            <div class="manual-control-button manual-control-button-down" onclick="sendPins([16, 19, 13, 21])"></div>
         </div>
         <div class="top-right">
             <a href="#" onclick="history.back()">
