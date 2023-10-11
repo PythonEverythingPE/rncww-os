@@ -69,33 +69,7 @@ if is_connected():
                         print("SERVICE STARTUP" + service["SERVICE_ID"] + " is not set to start on boot! Continuing...")
                         print()
     else:
-<<<<<<< HEAD
-        print("Unable to connect to update server!")
-        def start_service(service):
-            process = subprocess.Popen(["sudo", "python3.10", service["PATH"]], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-            for line in iter(process.stdout.readline, b''):
-                print(line.decode("utf-8").strip())
-        
-        print("Unable to connect to the internet!")
-        print("Starting RNCWW OS...")
-        with open("config/services.json", "r") as services:
-                    services = json.load(services)
-                    for service in services:
-                        print("Service Detected: " + service["SERVICE_ID"])
-                        
-                        if service["BOOT_START"]:
-                            if service["BOOT_START"] == True:
-                                print("Starting " + service["SERVICE_ID"])
-                                thread = threading.Thread(target=start_service, args=(service,))
-                                thread.start()
-                                print("Started " + service["SERVICE_ID"])
-                                print()
-                        else:
-                            print(service["SERVICE_ID"] + " is not set to start on boot! Continuing...")
-                            print()
-=======
         print("RNCWW | Unable to connect to update server!")
->>>>>>> cc274cf4608ee9d179e2a1b1bd8303023d75851d
 else:
     def start_service(service):
         process = subprocess.Popen(["sudo", "python3.10", service["PATH"]], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
