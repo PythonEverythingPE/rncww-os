@@ -14,10 +14,9 @@ PWM_FREQUENCY = 50
 PIN_BUZZER = 5
 FREQUENCIA_AGUDO = 1500
 FREQUENCIA_GRAVE = 1175
-global _pwm_
-global buzzer_pwn
-_pwm_ = None
-from ....robot_internal.gpio_setup import _pwm_, buzzer_pwn
+
+
+
 
 all_pins = front + back + left + right
 
@@ -37,35 +36,13 @@ def stop():
         
             GPIO.output(pino, GPIO.LOW)
 
-def bip(frequencia):
-    pwm =  buzzer_pwn
-    pwm.ChangeFrequency(frequencia)
-    pwm.ChangeDutyCycle(50) 
-    time.sleep(0.1)  
-    pwm.ChangeDutyCycle(0) 
-
-def long_alarm(frequencia):
-    pwm =  buzzer_pwn
-    pwm.ChangeFrequency(frequencia)
-    pwm.ChangeDutyCycle(50) 
-    time.sleep(5)  
-    pwm.ChangeDutyCycle(0)
 
 
 
 
 
 
-def servo(graus):
-    
-    
-    ciclo_de_trabalho = (graus / 18) + 2  
-    if _pwm_ is None:
-        
-        _pwm_.start(ciclo_de_trabalho)
-    else:
-        _pwm_.ChangeDutyCycle(ciclo_de_trabalho)
-    
+
 
 def get_distance():
     try:

@@ -1,6 +1,6 @@
 from  flask import Flask, jsonify, request, abort, redirect, render_template, Blueprint
 import json
-from gpio import *
+from api.gpio import *
 import subprocess
 
 api = Blueprint("api", __name__)
