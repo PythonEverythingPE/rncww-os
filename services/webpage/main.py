@@ -11,23 +11,7 @@ import os
 with open("config/users.json", "r") as f:
         users = json.load(f)
 
-def generate_frames():
-    with picamera.PiCamera() as camera:
-        camera.resolution = (640, 480)
-        camera.framerate = 30
-        while True:
-            stream = io.BytesIO()
-            for _ in camera.capture_continuous(stream, 'jpeg',
-                                               use_video_port=True, quality=10):
-                yield (b'--frame\r\n'
-                       b'Content-Type: image/jpeg\r\n\r\n' + stream.getvalue() + b'\r\n')
-                stream.seek(0)
-                stream.truncate()
 
-@app.route('/video_load')
-def video_feed():
-    return Response(generate_frames(),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 
@@ -81,9 +65,26 @@ def manual():
 def render_cameraa():
     if request.cookies.get("RNCWW_UD") is None:
         return redirect("/login", 301)
-    return render_template("pages/camera.html", USER_DATA=json.loads(request.cookies.get("RNCWW_UD")))
+    return app.send_static_file("pages/camera.html")
 
 
+
+def generate_frames():
+    with picamera.PiCamera() as camera:
+        camera.resolution = (640, 480)
+        camera.framerate = 30
+        while True:
+            stream = io.BytesIO()
+            try:
+                for _ in camera.capture_continuous(stream, 'jpeg',
+                                                   use_video_port=True, quality=10):
+                    yield (b'--frame\r\n'
+                           b'Content-Type: image/jpeg\r\n\r\n' + stream.getvalue() + b'\r\n')
+                    stream.seek(0)
+                    stream.truncate()
+                    
+            except Exception as e:
+                print(f"Error capturing frames: {e}")
 
 
 
