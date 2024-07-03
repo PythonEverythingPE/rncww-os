@@ -6,4 +6,4 @@ RNCWW-OS © 2024 by Python Everything is licensed under CC BY-NC-SA 4.0. To view
 FOR COMMERCIAL USE REQUESTS/GENERAL QUESTIONS:
 You can contact us at: support@pythoneverything.com
 
-Copyright Python Everything 2023. All rights reserved.
+Copyright Python Everything 2024. All rights reserved.
